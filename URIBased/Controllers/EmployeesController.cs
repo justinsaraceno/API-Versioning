@@ -50,13 +50,14 @@ namespace URIBased.Controllers
 
         private IEnumerable<Employee> Employees()
         {
+            // version 1 doesn't have address
             return new List<Employee>
             {
-                new Employee { Id = 1, FirstName = "Justin", LastName = "Saraceno", HireDate = new DateTime(2014, 01, 01), Address = new Address { Id = 1, Line1 = "123 Fake St", Line2 = "Suite 300", City = "Garner", State = "NC", PostalCode = "27529" } },
-                new Employee { Id = 2, FirstName = "Anders", LastName = "Holmvick", HireDate = new DateTime(2013, 11, 15), Address = new Address { Id = 2, Line1 = "17 Alice Way", Line2 = null, City = "Rancho Cucamonga", State = "CA", PostalCode = "90241" } },
-                new Employee { Id = 3, FirstName = "Blake", LastName = "Henderson", HireDate = new DateTime(2013, 11, 15), Address = new Address { Id = 3, Line1 = "17 Alice Way", Line2 = null, City = "Rancho Cucamonga", State = "CA", PostalCode = "90241" } },
-                new Employee { Id = 4, FirstName = "Adam", LastName = "DeMamp", HireDate = new DateTime(2013, 11, 15), Address = new Address { Id = 4, Line1 = "17 Alice Way", Line2 = null, City = "Rancho Cucamonga", State = "CA", PostalCode = "90241" } },
-                new Employee { Id = 5, FirstName = "Karl", LastName = "Hevacheck", HireDate = new DateTime(2013, 11, 15), Address = new Address { Id = 5, Line1 = "264 Peace St", Line2 = null, City = "Rancho Cucamonga", State = "CA", PostalCode = "90247" } }
+                new Employee { Id = 1, FirstName = "Justin", LastName = "Saraceno", HireDate = new DateTime(2014, 01, 01) },
+                new Employee { Id = 2, FirstName = "Anders", LastName = "Holmvick", HireDate = new DateTime(2013, 11, 15) },
+                new Employee { Id = 3, FirstName = "Blake", LastName = "Henderson", HireDate = new DateTime(2013, 11, 15)},
+                new Employee { Id = 4, FirstName = "Adam", LastName = "DeMamp", HireDate = new DateTime(2013, 11, 15)},
+                new Employee { Id = 5, FirstName = "Karl", LastName = "Hevacheck", HireDate = new DateTime(2013, 11, 15)}
             };
         }
     }
