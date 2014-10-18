@@ -1,0 +1,6 @@
+namespace RequestHeaders.Areas.HelpPage.ModelDescriptions
+{
+    public class SimpleTypeModelDescription : ModelDescription
+    {
+    }
+}
