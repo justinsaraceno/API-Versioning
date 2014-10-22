@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Dispatcher;
+using RequestHeaders.Infrastructure;
 
 namespace RequestHeaders
 {
@@ -9,7 +11,8 @@ namespace RequestHeaders
     {
         public static void Register(HttpConfiguration config)
         {
-            // Web API configuration and services
+            // replace the default HTTP controller selector with a version-aware controller selector
+            config.Services.Replace(typeof(IHttpControllerSelector), new VersionAwareControllerSelector(config));
 
             // Web API routes
             config.MapHttpAttributeRoutes();
@@ -19,6 +22,8 @@ namespace RequestHeaders
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            GlobalConfiguration.Configuration.Filters.Add(new VersionHeaderFilter());
         }
     }
 }
