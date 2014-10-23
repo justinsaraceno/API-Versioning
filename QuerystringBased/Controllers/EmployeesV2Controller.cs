@@ -4,9 +4,9 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using URIBased.Models;
+using QuerystringBased.Models;
 
-namespace URIBased.Controllers
+namespace QuerystringBased.Controllers
 {
     public class EmployeesV2Controller : ApiController
     {
