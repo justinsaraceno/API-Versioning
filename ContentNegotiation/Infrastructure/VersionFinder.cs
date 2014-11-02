@@ -16,7 +16,7 @@ namespace ContentNegotiation.Infrastructure
             if (request.Headers.Accept.Any())
             {
                 var acceptHeaderVersion =
-                    request.Headers.Accept.FirstOrDefault(x => x.MediaType.Contains("vnd.saraceno.sample.api"));
+                    request.Headers.Accept.FirstOrDefault(x => x.MediaType.Contains("vnd.codecamp.employee"));
 
                 if (acceptHeaderVersion != null && acceptHeaderVersion.MediaType.Contains("-v") && acceptHeaderVersion.MediaType.Contains("+"))
                 {
