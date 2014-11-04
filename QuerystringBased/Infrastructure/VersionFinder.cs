@@ -36,7 +36,7 @@ namespace QuerystringBased.Infrastructure
         {
             int version;
             if (string.IsNullOrEmpty(versionString) || !int.TryParse(versionString, out version))
-                return 0;
+                return int.Parse(System.Configuration.ConfigurationManager.AppSettings["latestApiVersion"]);
 
             return version;
         }
