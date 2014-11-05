@@ -1,4 +1,5 @@
 ﻿using System;
+using Newtonsoft.Json;
 
 namespace RequestHeaders.Models
 {
@@ -7,7 +8,9 @@ namespace RequestHeaders.Models
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public Address Address { get; set; }
-        public DateTime HireDate { get; set; }
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public DateTime? HireDate { get; set; }
     }
 }

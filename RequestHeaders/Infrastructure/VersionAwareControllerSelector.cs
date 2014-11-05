@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Dispatcher;
@@ -24,7 +25,7 @@ namespace RequestHeaders.Infrastructure
                 return GetVersionedControllerName(request, controllerName, version);
             }
 
-            return controllerName;
+            throw new HttpResponseException(new HttpResponseMessage{ StatusCode = HttpStatusCode.BadRequest, ReasonPhrase = "Version number is required" });
         }
 
         private string GetVersionedControllerName(HttpRequestMessage request, string controllerName, int version)

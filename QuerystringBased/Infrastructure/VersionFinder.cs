@@ -6,10 +6,13 @@ namespace QuerystringBased.Infrastructure
 {
     public class VersionFinder
     {
+        private static int latestApiVersion =
+            int.Parse(System.Configuration.ConfigurationManager.AppSettings["latestApiVersion"]);
+
         public int GetVersionFromRequest(HttpRequestMessage request)
         {
             string version;
-            return NeedsQuerystringVersioning(request, out version) ? VersionToInt(version) : 0;
+            return NeedsQuerystringVersioning(request, out version) ? VersionToInt(version) : latestApiVersion;
         }
 
         private static bool NeedsQuerystringVersioning(HttpRequestMessage request, out string version)
@@ -36,7 +39,7 @@ namespace QuerystringBased.Infrastructure
         {
             int version;
             if (string.IsNullOrEmpty(versionString) || !int.TryParse(versionString, out version))
-                return int.Parse(System.Configuration.ConfigurationManager.AppSettings["latestApiVersion"]);
+                return latestApiVersion;
 
             return version;
         }

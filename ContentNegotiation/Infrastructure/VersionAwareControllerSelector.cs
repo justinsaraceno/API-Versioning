@@ -24,7 +24,7 @@ namespace ContentNegotiation.Infrastructure
                 return GetVersionedControllerName(request, controllerName, version);
             }
 
-            return controllerName;
+            throw new HttpResponseException(new HttpResponseMessage { StatusCode = HttpStatusCode.BadRequest, ReasonPhrase = "Version number is required" });
         }
 
         private string GetVersionedControllerName(HttpRequestMessage request, string controllerName, int version)
